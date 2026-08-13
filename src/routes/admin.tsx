@@ -16,6 +16,7 @@ import {
   useVotingDays,
   type Participant,
   type SiteConfig,
+  type VotingDay,
   type VoteSubmission,
 } from "@/lib/residency";
 
@@ -274,7 +275,7 @@ function VotingDaysAdmin() {
     else await refresh();
   }
 
-  async function update(id: string, patch: Record<string, unknown>) {
+  async function update(id: string, patch: Partial<VotingDay>) {
     const { error } = await supabase.from("voting_days").update(patch).eq("id", id);
     if (error) toast.error(error.message);
     else await refresh();
