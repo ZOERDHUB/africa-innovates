@@ -70,9 +70,9 @@ export function useLeaderboard(dayNumber: number | null) {
   return useQuery({
     queryKey: ["leaderboard", dayNumber],
     queryFn: async (): Promise<LeaderboardRow[]> => {
-      const { data, error } = await supabase.rpc("get_leaderboard", {
-        _day_number: dayNumber ?? undefined,
-      });
+      const args = dayNumber === null ? {} : { _day_number: dayNumber };
+      const { data, error } = await supabase.rpc("get_leaderboard", args);
+
 
       if (error) throw error;
       return (data ?? []) as LeaderboardRow[];
