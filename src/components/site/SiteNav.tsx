@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/zoerd-zcash-logo.png.asset.json";
+import logoUrl from "@/assets/zoerd-zcash-logo.png";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -22,7 +22,7 @@ export function SiteNav() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <a href="#top" className="flex items-center gap-2">
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt="ZOERD × Zcash Ghana Events logo"
             className="h-10 w-10 object-contain"
             width={40}
