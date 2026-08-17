@@ -1,46 +1,46 @@
-import {
-  BookOpen,
-  ShieldCheck,
-  Code2,
-  Hammer,
-  Compass,
-  Users,
-  GitMerge,
-  Lightbulb,
-} from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
-const HIGHLIGHTS = [
-  { icon: BookOpen, title: "Technical Learning", body: "Structured sessions on core engineering fundamentals. [DETAILS TO BE CONFIRMED]" },
-  { icon: ShieldCheck, title: "Privacy & Blockchain", body: "Shielded transactions, zero-knowledge concepts and privacy-preserving design." },
-  { icon: Code2, title: "Developer Workshops", body: "Hands-on workshops facilitated by ecosystem contributors." },
-  { icon: Hammer, title: "Project Building", body: "Residents build practical projects during the residency." },
-  { icon: Compass, title: "Mentorship", body: "Guidance from mentors across the privacy and blockchain ecosystem." },
-  { icon: Users, title: "Community", body: "A cohort of builders, researchers and innovators working side by side." },
-  { icon: GitMerge, title: "Collaboration", body: "Open-source collaboration and shared contribution." },
-  { icon: Lightbulb, title: "Innovation", body: "Space to explore new ideas for Africa's technology ecosystem." },
+const JOURNEY = [
+  { step: "1", title: "Blockchain Fundamentals", facilitator: "zkSquirrel", time: "6pm GMT" },
+  { step: "2", title: "Understanding Financial Privacy", facilitator: "zkSquirrel", time: "6pm GMT" },
+  { step: "3", title: "Zcash Architecture", facilitator: "zkSquirrel", time: "6pm GMT" },
+  { step: "4", title: "Development Environment", facilitator: "zkSquirrel", time: "6pm GMT" },
+  { step: "5", title: "Wallet Development", facilitator: "Lowo", time: "6pm GMT" },
+  { step: "6", title: "Shielded Payments", facilitator: "Dismad", time: "6pm GMT" },
+  { step: "7", title: "Zcash SDKs", facilitator: "Lowo", time: "6pm GMT" },
+  { step: "8", title: "Backend Development", facilitator: "Gilmore", time: "12 noon GMT" },
+  { step: "9", title: "Full Stack Development", facilitator: "Lowo", time: "6pm GMT" },
+  { step: "10", title: "Privacy Payment Applications", facilitator: "Inspire_s", time: "12 noon GMT" },
+  { step: "11", title: "Security", facilitator: "ZOERD", time: "12 noon GMT+1" },
+  { step: "12", title: "Testing", facilitator: "ZOERD", time: "12 noon GMT+1" },
+  { step: "13", title: "Production Development", facilitator: "ZOERD", time: "12 noon GMT+1" },
+  { step: "14", title: "Open Source Development", facilitator: "Vancube", time: "12 noon GMT+1" },
+  { step: "15", title: "Startup & Grant Writing", facilitator: "Gilmore", time: "12 noon GMT+1" },
+  { step: "16", title: "Demo Day Preparation", facilitator: "ZOERD", time: "12 noon GMT+1" },
 ];
 
 export function Highlights() {
   return (
     <section id="programme" className="mx-auto max-w-6xl px-4 py-20">
       <SectionHeading
-        eyebrow="Programme Highlights"
-        title="What participants experience"
-        description="Each element of the residency is designed around practical building, technical depth and community."
+        eyebrow="The Learning Journey"
+        title="16-step residency curriculum"
+        description="From blockchain fundamentals to demo day, each session builds toward shipping a real privacy-focused project."
       />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {HIGHLIGHTS.map((item) => (
+      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {JOURNEY.map((item) => (
           <article
-            key={item.title}
-            className="surface-panel group rounded-2xl p-6 transition-colors hover:border-primary/50"
+            key={item.step}
+            className="surface-panel group relative rounded-2xl p-5 transition-colors hover:border-primary/50"
           >
-            <span className="grid h-11 w-11 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
-              <item.icon className="h-5 w-5" />
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
+              {item.step}
             </span>
-            <h3 className="mt-5 text-base font-semibold">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            <h3 className="mt-4 text-sm font-semibold leading-snug">{item.title}</h3>
+            <p className="mt-2 text-xs text-muted-foreground">
+              {item.facilitator} · {item.time}
+            </p>
           </article>
         ))}
       </div>

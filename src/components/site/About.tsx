@@ -1,9 +1,10 @@
+import { Calendar, Plane, Rocket, PartyPopper, Clock } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const BLOCKS = [
   {
     title: "What the residency is",
-    body: "A focused technology residency where developers, builders, researchers and innovators work together on privacy-focused blockchain technology. Full programme details are published by the organisers. [DETAILS TO BE CONFIRMED]",
+    body: "A focused technology residency where developers, builders, researchers and innovators work together on privacy-focused blockchain technology. Over three weeks, residents move from fundamentals to shipping real projects.",
   },
   {
     title: "Why it is being organised",
@@ -19,11 +20,44 @@ const BLOCKS = [
   },
   {
     title: "What participants learn and build",
-    body: "Participants develop technical skills, collaborate with other builders, work on practical projects and engage with the broader privacy and blockchain ecosystem. [CURRICULUM TO BE CONFIRMED]",
+    body: "Participants develop technical skills, collaborate with other builders, work on practical projects and engage with the broader privacy and blockchain ecosystem.",
   },
   {
     title: "Why it matters for Africa",
     body: "Privacy technology protects people, and blockchain development creates open infrastructure. Building that capability locally strengthens Africa's technology ecosystem.",
+  },
+];
+
+const TIMELINE = [
+  {
+    icon: Plane,
+    date: "Tuesday, 1 September 2026",
+    title: "Arrival & Induction",
+    body: "Residents arrive, register and are inducted into the programme.",
+  },
+  {
+    icon: Rocket,
+    date: "Wednesday, 2 September 2026",
+    title: "Programme Launch",
+    body: "Lectures, practical sessions and project building officially begin.",
+  },
+  {
+    icon: Clock,
+    date: "2 — 19 September 2026",
+    title: "Three Weeks of Building",
+    body: "Education, practical development, daily challenges, community interaction and project building.",
+  },
+  {
+    icon: PartyPopper,
+    date: "Sunday, 20 September 2026",
+    title: "Demo Day & Gala Night",
+    body: "Final presentations, awards, recognition of outstanding residents, networking and celebration.",
+  },
+  {
+    icon: Plane,
+    date: "Monday, 21 September 2026",
+    title: "Departure",
+    body: "Checkout and departure of residents.",
   },
 ];
 
@@ -43,6 +77,34 @@ export function About() {
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{block.body}</p>
           </article>
         ))}
+      </div>
+
+      <div className="mt-16">
+        <SectionHeading
+          eyebrow="Programme Timeline"
+          title="Key dates and milestones"
+          description="A clear arc from arrival to demo day."
+        />
+
+        <div className="mt-10">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-5 hidden w-px bg-gradient-to-b from-primary/0 via-primary/40 to-primary/0 md:block" />
+            <div className="grid gap-6">
+              {TIMELINE.map((item) => (
+                <div key={item.date} className="relative flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+                  <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border bg-background text-primary">
+                    <item.icon className="h-4 w-4" />
+                  </span>
+                  <div className="surface-panel flex-1 rounded-2xl p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{item.date}</p>
+                    <h3 className="mt-1 text-lg font-semibold">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
