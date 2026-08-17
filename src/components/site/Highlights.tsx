@@ -28,11 +28,11 @@ export function Highlights() {
         description="From blockchain fundamentals to demo day, each session builds toward shipping a real privacy-focused project."
       />
 
-      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid auto-cols-[minmax(260px,1fr)] grid-flow-col grid-rows-2 gap-3 overflow-x-auto pb-3 snap-x snap-mandatory sm:grid-cols-2 sm:grid-flow-row sm:grid-rows-none sm:overflow-visible lg:grid-cols-4">
         {JOURNEY.map((item) => (
           <article
             key={item.step}
-            className="surface-panel group relative rounded-2xl p-5 transition-colors hover:border-primary/50"
+            className="surface-panel group relative snap-start rounded-2xl p-5 transition-colors hover:border-primary/50"
           >
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
               {item.step}
@@ -44,6 +44,7 @@ export function Highlights() {
           </article>
         ))}
       </div>
+      <p className="mt-2 text-xs text-muted-foreground lg:hidden">Swipe horizontally to see all 16 sessions.</p>
     </section>
   );
 }
