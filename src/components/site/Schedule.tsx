@@ -115,30 +115,35 @@ export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
           <div className="mt-16">
             <h3 className="text-lg font-semibold">Detailed timetable</h3>
             <div className="mt-4 overflow-hidden rounded-2xl border border-border">
-              <table className="w-full min-w-[640px] text-left text-sm">
-                <thead className="bg-background/70 text-xs uppercase tracking-wide text-muted-foreground">
-                  <tr>
-                    <th className="px-4 py-3">Date</th>
-                    <th className="px-4 py-3">Time</th>
-                    <th className="px-4 py-3">Session</th>
-                    <th className="px-4 py-3">Facilitator</th>
-                    <th className="px-4 py-3">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {items.map((item) => (
-                    <tr key={item.id} className="border-t border-border bg-surface/60">
-                      <td className="px-4 py-3 font-medium">{item.day_label}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{item.time_label}</td>
-                      <td className="px-4 py-3 font-medium">{item.session_title}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{item.facilitator}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{item.description}</td>
+              <div className="max-h-[360px] overflow-auto">
+                <table className="w-full min-w-[640px] text-left text-sm">
+                  <thead className="sticky top-0 z-10 bg-background/95 text-xs uppercase tracking-wide text-muted-foreground">
+                    <tr>
+                      <th className="px-4 py-3">Date</th>
+                      <th className="px-4 py-3">Time</th>
+                      <th className="px-4 py-3">Session</th>
+                      <th className="px-4 py-3">Facilitator</th>
+                      <th className="px-4 py-3">Description</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {items.map((item) => (
+                      <tr key={item.id} className="border-t border-border bg-surface/60">
+                        <td className="px-4 py-3 font-medium">{item.day_label}</td>
+                        <td className="px-4 py-3 text-muted-foreground">{item.time_label}</td>
+                        <td className="px-4 py-3 font-medium">{item.session_title}</td>
+                        <td className="px-4 py-3 text-muted-foreground">{item.facilitator}</td>
+                        <td className="px-4 py-3 text-muted-foreground">{item.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <p className="mt-3 text-xs text-muted-foreground lg:hidden">Scroll the table horizontally to see all columns.</p>
+            <div className="mt-3 flex flex-col gap-1 text-xs text-muted-foreground lg:hidden">
+              <p>Scroll horizontally to see all columns.</p>
+              <p>Scroll vertically to see rows beyond the first 7.</p>
+            </div>
           </div>
         ) : null}
       </div>
