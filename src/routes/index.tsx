@@ -10,6 +10,7 @@ import { VotingSection } from "@/components/site/VotingSection";
 import { Livestream } from "@/components/site/Livestream";
 import { Schedule } from "@/components/site/Schedule";
 import { Support } from "@/components/site/Support";
+import { Sponsorship } from "@/components/site/Sponsorship";
 import { Faq } from "@/components/site/Faq";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { VoteDialog } from "@/components/site/VoteDialog";
