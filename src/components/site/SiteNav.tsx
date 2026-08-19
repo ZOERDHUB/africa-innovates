@@ -48,7 +48,7 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
-            <a href="#vote">Vote Now</a>
+            <a href="/#vote">Vote Now</a>
           </Button>
           <button
             type="button"
