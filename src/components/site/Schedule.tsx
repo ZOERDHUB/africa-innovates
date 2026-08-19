@@ -57,7 +57,40 @@ const AWARDS = [
   { icon: Crown, label: "Community Choice Award" },
 ];
 
+const FALLBACK_TIMETABLE = [
+  ["Sept. 2", "7:00 PM WAT", "Blockchain Fundamentals + Residency Orientation", "zkSquirrel", "Week 1 — Foundations"],
+  ["Sept. 3", "7:00 PM WAT", "Financial Privacy + Privacy Challenge", "zkSquirrel", "Week 1 — Foundations"],
+  ["Sept. 4", "7:00 PM WAT", "Zcash Architecture + Architecture Challenge", "zkSquirrel", "Week 1 — Foundations"],
+  ["Sept. 5", "7:00 PM WAT", "Development Environment + Setup Challenge", "zkSquirrel", "Week 1 — Foundations"],
+  ["Sept. 6", "7:00 PM WAT", "Wallet Development + Wallet Task", "Lowo", "Week 1 — Foundations"],
+  ["Sept. 7", "", "Weekly Build Challenge + Community Voting", "", "Week 1 — Foundations"],
+  ["Sept. 8", "", "Rest / Community Engagement Day", "", "Week 1 — Foundations"],
+  ["Sept. 9", "7:00 PM WAT", "Shielded Payments + Shielded Transaction Challenge", "Dismad", "Week 2 — Building"],
+  ["Sept. 10", "7:00 PM WAT", "Zcash SDKs + SDK Integration Task", "Lowo", "Week 2 — Building"],
+  ["Sept. 11", "1:00 PM WAT", "Backend Development + API/Backend Challenge", "Gilmore", "Week 2 — Building"],
+  ["Sept. 12", "7:00 PM WAT", "Full Stack Development + Full-Stack Task", "Lowo", "Week 2 — Building"],
+  ["Sept. 13", "1:00 PM WAT", "Privacy Payment Applications + Privacy App Challenge", "Inspire_s", "Week 2 — Building"],
+  ["Sept. 14", "1:00 PM WAT", "Security + Security Review Challenge", "ZOERD", "Week 2 — Building"],
+  ["Sept. 15", "1:00 PM WAT", "Testing + Testing Challenge", "ZOERD", "Week 2 — Building"],
+  ["Sept. 16", "1:00 PM WAT", "Production Development + Deployment Challenge", "ZOERD", "Week 3 — Ship, Open Source & Demo"],
+  ["Sept. 17", "1:00 PM WAT", "Open Source Development + Contribution Challenge", "Vancube", "Week 3 — Ship, Open Source & Demo"],
+  ["Sept. 18", "1:00 PM WAT", "Startup & Grant Writing + Project Pitch Challenge", "Gilmore", "Week 3 — Ship, Open Source & Demo"],
+  ["Sept. 19", "1:00 PM WAT", "Demo Day Preparation + Final Project Review", "ZOERD", "Week 3 — Ship, Open Source & Demo"],
+  ["Sept. 20", "", "Demo Day + Gala Night", "", "Final presentations, awards, recognition, networking and celebration."],
+].map(([day_label, time_label, session_title, facilitator, description]) => ({
+  day_label,
+  time_label,
+  session_title,
+  facilitator,
+  description,
+}));
+
 export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
+  const timetableItems =
+    !items?.length || items.some((item) => item.day_label.startsWith("[") || item.description.startsWith("Placeholder"))
+      ? FALLBACK_TIMETABLE
+      : items;
+
   return (
     <section id="schedule" className="border-y border-border bg-surface/40 py-20">
       <div className="mx-auto max-w-6xl px-4">
@@ -111,7 +144,7 @@ export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
           </div>
         </div>
 
-        {items && items.length > 0 ? (
+        {timetableItems.length > 0 ? (
           <div className="mt-16">
             <h3 className="text-lg font-semibold">Detailed timetable</h3>
             <div className="mt-4 overflow-hidden rounded-2xl border border-border">
@@ -127,8 +160,8 @@ export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
                     </tr>
                   </thead>
                   <tbody>
-                    {items.map((item) => (
-                      <tr key={item.id} className="border-t border-border bg-surface/60">
+                    {timetableItems.map((item) => (
+                      <tr key={`${item.day_label}-${item.session_title}`} className="border-t border-border bg-surface/60">
                         <td className="px-4 py-3 font-medium">{item.day_label}</td>
                         <td className="px-4 py-3 text-muted-foreground">{item.time_label}</td>
                         <td className="px-4 py-3 font-medium">{item.session_title}</td>
