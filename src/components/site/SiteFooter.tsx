@@ -4,13 +4,14 @@ import type { SiteConfig } from "@/lib/residency";
 import { FALLBACK_CONFIG } from "@/lib/residency";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#programme", label: "Programme" },
-  { href: "#participants", label: "Participants" },
-  { href: "#vote", label: "Vote" },
-  { href: "#livestream", label: "Livestream" },
-  { href: "#support", label: "Support" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+  { href: "/#programme", label: "Programme" },
+  { href: "/#participants", label: "Participants" },
+  { href: "/#vote", label: "Vote" },
+  { href: "/#livestream", label: "Livestream" },
+  { href: "/sponsorship", label: "Sponsorship" },
+  { href: "/#support", label: "Support" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function SiteFooter({ config }: { config: SiteConfig | null | undefined }) {
