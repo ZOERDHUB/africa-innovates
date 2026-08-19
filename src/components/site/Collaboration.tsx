@@ -27,7 +27,7 @@ export function Collaboration() {
               Z
             </div>
             <h3 className="mt-5 text-xl font-semibold">
-              ZOERD Privacy Blockchain &amp; AI Innovation Hub
+              ZOERDHUB Privacy Blockchain &amp; AI Innovation Hub
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               An innovation hub working at the intersection of privacy technology, blockchain systems

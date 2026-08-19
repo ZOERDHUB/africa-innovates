@@ -29,7 +29,7 @@ export function Livestream({ config }: { config: SiteConfig | null | undefined }
       <SectionHeading
         eyebrow="Livestream"
         title="Watch the Residency Live"
-        description="Sessions are streamed on ZOERD Hub TV. Open the channel for the live broadcast and recordings."
+        description="Sessions are streamed on ZOERDHUB TV. Open the channel for the live broadcast and recordings."
       />
 
       <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-surface">

@@ -9,7 +9,7 @@ set time_label = case facilitator
   when 'Dismad' then '7:00 PM WAT'
   when 'Gilmore' then '1:00 PM WAT'
   when 'Inspire_s' then '1:00 PM WAT'
-  when 'ZOERD' then '1:00 PM WAT'
+  when 'ZOERDHUB' then '1:00 PM WAT'
   when 'Vancube' then '1:00 PM WAT'
   else time_label
 end;

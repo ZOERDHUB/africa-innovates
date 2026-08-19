@@ -32,12 +32,12 @@ create table public.site_config (
   event_date text not null default '5–28 September 2026',
   location text not null default 'ZOERDHUB Nigeria',
   duration text not null default '3 Weeks',
-  organizers text not null default 'ZOERD Privacy Blockchain & AI Innovation Hub',
+  organizers text not null default 'ZOERDHUB Privacy Blockchain & AI Innovation Hub',
   partners text not null default 'Zcash Ghana',
   livestream_url text not null default 'https://www.youtube.com/@ZOERDHubTV',
   voting_wallet text not null default 'u10fgklgfqtyug0zvxwut5qjvf98tzmy75h72lwup9eexgzjcj7dqhpune4kf8n6jry72crmrtpcpgsvcjnwcw76auuthx0rkqv98h762qtxw6uyty9375486uq5zjnwm8fcf7rzcu7n4wut3s27n86dphwkc6quvjr2annd5weqq2x2zu',
   support_wallet text not null default 'u12f4nh046n9dd0lt7fgmfs4ervdf58v025h5k74v3mmclkfkggwgazk2nhutmtu2hx8vkg4lug0z78rek2w8vqw2wdafctfvy50e09p0tt72n4grhn74u722q0v70twa67q97ljfk7nj48zha5xrp9hhsm6q38mmekmht73hp2y5am2gm',
-  vote_price_zec text not null default '0.001',
+  vote_price_zec text not null default '0.01',
   youtube_url text not null default 'https://www.youtube.com/@ZOERDHubTV',
   x_url text not null default '',
   telegram_url text not null default '',
@@ -194,7 +194,7 @@ create trigger schedule_updated before update on public.schedule_items for each 
 create table public.faq_items (
   id uuid primary key default gen_random_uuid(),
   question text not null,
-  answer text not null default '[TO BE CONFIRMED]',
+  answer text not null default '',
   sort_order integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -223,7 +223,7 @@ insert into public.participants (participant_code, participant_tag, full_name, u
  ('ZRD003','DEMO03-ZRD003','Demo Participant 03','@demo03','Demo profile. Replace with real resident information from the admin dashboard.','Privacy research', true, 3),
  ('ZRD004','DEMO04-ZRD004','Demo Participant 04','@demo04','Demo profile. Replace with real resident information from the admin dashboard.','AI & data systems', true, 4);
 
-insert into public.voting_days (day_number, label, is_open, vote_price_zec) values (1, 'Day 1', true, '');
+insert into public.voting_days (day_number, label, is_open, vote_price_zec) values (1, 'Day 1', true, '0.01');
 
 insert into public.schedule_items (day_label, time_label, session_title, facilitator, description, sort_order) values
  ('[DAY 1]','[TIME]','Opening & Residency Orientation','[FACILITATOR]','Placeholder session. Update from the admin dashboard.',1),
@@ -233,18 +233,18 @@ insert into public.schedule_items (day_label, time_label, session_title, facilit
  ('[DAY 3]','[TIME]','Mentorship & Demo Day','[FACILITATOR]','Placeholder session. Update from the admin dashboard.',5);
 
 insert into public.faq_items (question, answer, sort_order) values
- ('What is the residency?','A technology residency organised by ZOERD Privacy Blockchain & AI Innovation Hub in collaboration with Zcash Ghana, bringing developers, builders, researchers and innovators together to learn and build with privacy-focused blockchain technology.',1),
- ('Who is organizing it?','ZOERD Privacy Blockchain & AI Innovation Hub, in collaboration with Zcash Ghana.',2),
+ ('What is the residency?','A technology residency organised by ZOERDHUB Privacy Blockchain & AI Innovation Hub in collaboration with Zcash Ghana, bringing developers, builders, researchers and innovators together to learn and build with privacy-focused blockchain technology.',1),
+ ('Who is organizing it?','ZOERDHUB Privacy Blockchain & AI Innovation Hub, in collaboration with Zcash Ghana.',2),
  ('Who are the participants?','Residents are listed in the Meet the Residents section. Demo profiles are shown until the official list is published.',3),
  ('How does voting work?','You send the required amount of ZEC to the official voting wallet and include the participant tag in the transaction memo. Your transaction is verified before the vote is counted.',4),
- ('How much does one vote cost?','[TO BE CONFIRMED] — the official ZEC amount per vote is set by the organisers and shown in the voting panel.',5),
- ('Where do I send Zcash?','Only to the official voting wallet shown in the voting panel. The support wallet is a different address and is not used for voting.',6),
+ ('How much does one vote cost?','0.01 ZEC — the cost for each vote is shown in the voting panel.',5),
+ ('Where do I send ZEC?','To the official voting wallet shown in the voting panel. The support wallet is different and is not used for voting.',6),
  ('What should I put in the memo?','The participant tag exactly as shown on their card, for example DEMO01-ZRD001.',7),
  ('What happens if I forget the memo?','The team cannot automatically associate your vote transaction with a participant. Contact the organisers with your transaction ID.',8),
  ('How is my vote verified?','Your vote transaction is checked against the official voting wallet, amount, memo tag, confirmation status and voting day before the vote is counted.',9),
  ('When does voting close?','Each voting day has its own opening and closing time, shown in the Daily Participant Voting section.',10),
- ('Can I vote multiple times?','[TO BE CONFIRMED]',11),
+ ('Can I vote multiple times?','Yes. You may cast multiple votes while voting is open.',11),
  ('Can I vote every day?','Voting is organised per day. Each open voting day accepts new votes.',12),
  ('How can I support the event?','Use the Support the Residency section and send ZEC to the dedicated support wallet.',13),
- ('Where can I watch the livestream?','On the ZOERD Hub TV YouTube channel, linked in the livestream section.',14),
+ ('Where can I watch the livestream?','On the ZOERDHUB TV YouTube channel, linked in the livestream section.',14),
  ('What happens if my transaction is not verified?','It is marked rejected or duplicate and no vote is counted. Contact the organisers if you believe this is an error.',15);

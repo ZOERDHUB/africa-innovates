@@ -1,11 +1,11 @@
 update public.site_config
 set
   location = 'ZOERDHUB Nigeria',
-  vote_price_zec = '0.001'
+  vote_price_zec = '0.01'
 where id = 1;
 
 update public.voting_days
-set vote_price_zec = '0.001'
+set vote_price_zec = '0.01'
 where coalesce(nullif(trim(vote_price_zec), ''), '[TO BE CONFIRMED]') = '[TO BE CONFIRMED]';
 
 update public.faq_items

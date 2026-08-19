@@ -9,7 +9,7 @@ export function Support({ config }: { config: SiteConfig | null | undefined }) {
       <SectionHeading
         eyebrow="Support"
         title="Support the Residency"
-        description="Want to support the residency beyond voting? You can contribute directly to the event using Zcash."
+        description="Want to support the residency beyond voting? You can contribute directly to the event using Shielded ZEC."
       />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
@@ -39,7 +39,7 @@ export function Support({ config }: { config: SiteConfig | null | undefined }) {
           </p>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
             Contributions are voluntary. Detailed allocation of funds is published by the
-            organisers. [TO BE CONFIRMED]
+            organisers.
           </p>
         </div>
       </div>

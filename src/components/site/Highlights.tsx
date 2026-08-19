@@ -11,12 +11,12 @@ const JOURNEY = [
   { step: "8", title: "Backend Development", facilitator: "Gilmore", time: "1:00 PM WAT" },
   { step: "9", title: "Full Stack Development", facilitator: "Lowo", time: "7:00 PM WAT" },
   { step: "10", title: "Privacy Payment Applications", facilitator: "Inspire_s", time: "1:00 PM WAT" },
-  { step: "11", title: "Security", facilitator: "ZOERD", time: "1:00 PM WAT" },
-  { step: "12", title: "Testing", facilitator: "ZOERD", time: "1:00 PM WAT" },
-  { step: "13", title: "Production Development", facilitator: "ZOERD", time: "1:00 PM WAT" },
+  { step: "11", title: "Security", facilitator: "ZOERDHUB", time: "1:00 PM WAT" },
+  { step: "12", title: "Testing", facilitator: "ZOERDHUB", time: "1:00 PM WAT" },
+  { step: "13", title: "Production Development", facilitator: "ZOERDHUB", time: "1:00 PM WAT" },
   { step: "14", title: "Open Source Development", facilitator: "Vancube", time: "1:00 PM WAT" },
   { step: "15", title: "Startup & Grant Writing", facilitator: "Gilmore", time: "1:00 PM WAT" },
-  { step: "16", title: "Demo Day Preparation", facilitator: "ZOERD", time: "1:00 PM WAT" },
+  { step: "16", title: "Demo Day Preparation", facilitator: "ZOERDHUB", time: "1:00 PM WAT" },
 ];
 
 export function Highlights() {

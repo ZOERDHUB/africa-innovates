@@ -13,11 +13,11 @@ export const FALLBACK_CONFIG = {
   event_kicker: "ZOERDHUB × Zcash Ghana",
   event_title: "Technology Residency",
   headline: "Building the Future of Privacy, Blockchain & Innovation in Africa",
-  event_date: "5–28 September 2026",
+  event_date: "1–21 September 2026",
   duration: "3 Weeks",
   location: "ZOERDHUB Nigeria",
   livestream_url: "https://www.youtube.com/@ZOERDHubTV",
-  vote_price_zec: "0.001",
+  vote_price_zec: "0.01",
 } as const;
 
 export function useSiteConfig() {
@@ -133,7 +133,7 @@ export function activeVotingDay(days: VotingDay[] | undefined): VotingDay | null
 }
 
 export function formatDateTime(value: string | null): string {
-  if (!value) return "[TO BE CONFIRMED]";
+  if (!value) return "Not scheduled";
   try {
     return new Date(value).toLocaleString(undefined, {
       dateStyle: "medium",

@@ -11,8 +11,8 @@ const BLOCKS = [
     body: "To grow local capacity in privacy engineering and blockchain development, and to connect African builders with the wider open-source ecosystem.",
   },
   {
-    title: "The role of ZOERD",
-    body: "ZOERD Privacy Blockchain & AI Innovation Hub convenes the residency, provides the innovation environment, technical direction and research framing.",
+    title: "The role of ZOERDHUB",
+    body: "ZOERDHUB Privacy Blockchain & AI Innovation Hub convenes the residency, provides the innovation environment, technical direction and research framing.",
   },
   {
     title: "The role of Zcash Ghana",

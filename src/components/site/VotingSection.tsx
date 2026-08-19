@@ -21,7 +21,7 @@ type Props = {
 export function VotingSection({ config, votingDay, votingDays, participants, onVote }: Props) {
   const { data: leaderboard, isLoading } = useLeaderboard(votingDay?.day_number ?? null);
   const configuredPrice = config?.vote_price_zec;
-  const price = votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") ? FALLBACK_CONFIG.vote_price_zec : configuredPrice) || FALLBACK_CONFIG.vote_price_zec;
+  const price = votingDay?.vote_price_zec === "0.001" ? FALLBACK_CONFIG.vote_price_zec : votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") || configuredPrice === "0.001" ? FALLBACK_CONFIG.vote_price_zec : configuredPrice) || FALLBACK_CONFIG.vote_price_zec;
   const totalVotes = (leaderboard ?? []).reduce((sum, row) => sum + Number(row.verified_votes), 0);
   const previousDays = (votingDays ?? []).filter((d) => d.id !== votingDay?.id);
 
@@ -69,7 +69,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
                 <dd className="text-right font-medium">{formatDateTime(votingDay?.closes_at ?? null)}</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-border pb-3">
-                <dt className="text-muted-foreground">Price per vote</dt>
+                <dt className="text-muted-foreground">Cost per vote</dt>
                 <dd className="font-medium">{price} ZEC</dd>
               </div>
               <div className="flex justify-between gap-4">

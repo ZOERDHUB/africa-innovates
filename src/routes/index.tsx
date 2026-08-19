@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Privacy, blockchain and innovation residency by ZOERD and Zcash Ghana. Watch the livestream, vote for residents with Zcash and support the programme.",
+          "Privacy, blockchain and innovation residency by ZOERDHUB and Zcash Ghana. Watch the livestream, vote for residents with ZEC and support the programme.",
       },
       { property: "og:title", content: "ZOERDHUB × Zcash Ghana Technology Residency" },
       {

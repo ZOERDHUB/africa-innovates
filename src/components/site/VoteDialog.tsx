@@ -65,7 +65,7 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
   if (!participant) return null;
 
   const configuredPrice = config?.vote_price_zec;
-  const price = votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") ? "0.001" : configuredPrice) || "0.001";
+  const price = votingDay?.vote_price_zec === "0.001" ? "0.01" : votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") || configuredPrice === "0.001" ? "0.01" : configuredPrice) || "0.01";
   const votingOpen = Boolean(votingDay?.is_open) && participant.voting_enabled;
 
   async function handleSubmit(event: React.FormEvent) {

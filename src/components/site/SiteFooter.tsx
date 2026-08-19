@@ -21,7 +21,7 @@ export function SiteFooter({ config }: { config: SiteConfig | null | undefined }
     <footer className="border-t border-border bg-surface/50">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3">
         <div>
-          <p className="text-base font-semibold">ZOERD Privacy Blockchain &amp; AI Innovation Hub</p>
+          <p className="text-base font-semibold">ZOERDHUB Privacy Blockchain &amp; AI Innovation Hub</p>
           <p className="mt-2 text-sm text-muted-foreground">in collaboration with Zcash Ghana</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             A residency for developers, builders, researchers and innovators working on privacy and
@@ -56,27 +56,14 @@ export function SiteFooter({ config }: { config: SiteConfig | null | undefined }
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
               >
-                <Youtube className="h-4 w-4" /> ZOERD Hub TV
+                <Youtube className="h-4 w-4" /> ZOERDHUB TV
               </a>
             </li>
-            <li className="text-muted-foreground">
-              {config?.x_url ? (
-                <a href={config.x_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
-                  X / Twitter
-                </a>
-              ) : (
-                "X / Twitter — [LINK TO BE ADDED]"
-              )}
-            </li>
-            <li className="text-muted-foreground">
-              {config?.telegram_url ? (
-                <a href={config.telegram_url} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
-                  Telegram
-                </a>
-              ) : (
-                "Telegram — [LINK TO BE ADDED]"
-              )}
-            </li>
+            <li><a href="https://x.com/zoerdhub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">X / Twitter — @zoerdhub</a></li>
+            <li><a href="https://x.com/zcashgh" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">X / Twitter — @ZcashGH</a></li>
+            <li><a href="https://t.me/zoerdhub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — @zoerdhub</a></li>
+            <li><a href="https://t.me/ZOERDHUBCOMMUNITY" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — ZOERDHUB</a></li>
+            <li><a href="https://t.me/+hR4ac246XuVjNzI0" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — Zcash Ghana</a></li>
             <li className="text-muted-foreground">
               {config?.contact_email ? (
                 <a href={`mailto:${config.contact_email}`} className="hover:text-foreground">
@@ -92,7 +79,7 @@ export function SiteFooter({ config }: { config: SiteConfig | null | undefined }
 
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 ZOERD. All rights reserved.</p>
+          <p>© 2026 ZOERDHUB. All rights reserved.</p>
           <Link to="/admin" className="hover:text-foreground">
             Organiser dashboard
           </Link>

@@ -9,7 +9,7 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
   const title = config?.event_title ?? FALLBACK_CONFIG.event_title;
   const headline = config?.headline ?? FALLBACK_CONFIG.headline;
   const livestream = config?.livestream_url ?? FALLBACK_CONFIG.livestream_url;
-  const eventDate = config?.event_date?.startsWith("[") ? FALLBACK_CONFIG.event_date : config?.event_date ?? FALLBACK_CONFIG.event_date;
+  const eventDate = FALLBACK_CONFIG.event_date;
   const duration = config?.duration?.startsWith("[") ? FALLBACK_CONFIG.duration : config?.duration ?? FALLBACK_CONFIG.duration;
   const location = config?.location?.startsWith("[") ? FALLBACK_CONFIG.location : config?.location ?? FALLBACK_CONFIG.location;
 
@@ -20,7 +20,7 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
     {
       icon: Users2,
       label: "Organizers",
-      value: config?.organizers ?? "ZOERD Privacy Blockchain & AI Innovation Hub",
+      value: config?.organizers ?? "ZOERDHUB Privacy Blockchain & AI Innovation Hub",
     },
     { icon: Handshake, label: "Partners", value: config?.partners ?? "Zcash Ghana" },
   ];

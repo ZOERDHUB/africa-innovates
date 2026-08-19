@@ -11,9 +11,9 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Organiser Sign In | ZOERD Residency" },
+      { title: "Organiser Sign In | ZOERDHUB Residency" },
       { name: "description", content: "Sign in to manage the ZOERDHUB × Zcash Ghana residency." },
-      { property: "og:title", content: "Organiser Sign In | ZOERD Residency" },
+      { property: "og:title", content: "Organiser Sign In | ZOERDHUB Residency" },
       { property: "og:description", content: "Organiser access to the residency dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

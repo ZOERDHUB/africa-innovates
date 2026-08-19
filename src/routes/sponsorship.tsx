@@ -32,7 +32,7 @@ const TIERS = [
     featured: false,
     benefits: [
       "Recognition on the Residency online/community supporter wall",
-      "Thank-you recognition through ZOERD / Zcash Ghana social channels",
+      "Thank-you recognition through ZOERDHUB / Zcash Ghana social channels",
       "Digital Residency Supporter recognition",
       "Recognition during selected Residency livestreams",
     ],
@@ -216,7 +216,7 @@ function SponsorshipPage() {
         <section className="border-b border-border/60 bg-background">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-              ZEC Sponsorship &amp; Community Support Programme
+              Shielded ZEC Sponsorship &amp; Community Support Programme
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-foreground sm:text-5xl">
               Support Developers. Build Privacy. Grow the Zcash Ecosystem.
@@ -289,7 +289,7 @@ function SponsorshipPage() {
                 <SectionHeading
                   eyebrow="Sponsor a Resident"
                   title="Sponsor a Developer. Build the Privacy Future."
-                  description="For 1 ZEC you can directly support one developer taking part in the Residency. This option is designed for ordinary Zcash community members who want to help a builder rather than sponsor at organisational level."
+              description="For 1 Shielded ZEC you can directly support one developer taking part in the Residency. This option is designed for ordinary Zcash community members who want to help a builder rather than sponsor at organisational level."
                 />
                 <p className="mt-6 text-sm font-semibold">Contributions may help cover:</p>
                 <ul className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -370,7 +370,7 @@ function SponsorshipPage() {
               </span>
               <h3 className="mt-5 text-lg font-semibold">Fundraising updates</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Periodic updates are published on this page and through ZOERD / Zcash Ghana
+                Periodic updates are published on this page and through ZOERDHUB / Zcash Ghana
                 channels, covering:
               </p>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
@@ -401,7 +401,7 @@ function SponsorshipPage() {
             <SectionHeading
               eyebrow="Contribute in ZEC"
               title="Shielded ZEC payments, explained honestly"
-              description="Sponsorship contributions are made in ZEC and, where your wallet supports it, through shielded transactions. We treat this as a practical, educational demonstration of privacy-preserving digital payments."
+              description="Sponsorship contributions are made in Shielded ZEC and, where your wallet supports it, through shielded transactions. We treat this as a practical, educational demonstration of privacy-preserving digital payments."
             />
 
             <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_1fr]">
@@ -415,7 +415,7 @@ function SponsorshipPage() {
                 />
                 <p className="mt-4 flex gap-2 rounded-xl border border-warning/40 bg-warning/10 p-3 text-sm text-warning">
                   <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-                  Always verify the official address on this page — and through an official ZOERD or
+                  Always verify the official address on this page — and through an official ZOERDHUB or
                   Zcash Ghana channel — before sending funds. This address is separate from the
                   voting wallet: sponsorship contributions are not votes.
                 </p>
@@ -613,7 +613,7 @@ function SponsorshipPage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
                   The address on this page is maintained by the organisers and is the only address
-                  the programme publishes. Verify it against an official ZOERD or Zcash Ghana channel
+                  the programme publishes. Verify it against an official ZOERDHUB or Zcash Ghana channel
                   before sending funds, and never trust an address shared in a private message.
                 </AccordionContent>
               </AccordionItem>
