@@ -30,7 +30,7 @@ export function SiteNav() {
             height={40}
           />
           <span className="text-sm font-semibold tracking-tight">
-            ZOERD <span className="text-muted-foreground">×</span> Zcash Ghana
+            ZOERDHUB <span className="text-muted-foreground">×</span> Zcash Ghana
           </span>
         </a>
 
