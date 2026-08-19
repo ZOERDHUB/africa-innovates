@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import logoUrl from "@/assets/zoerd-zcash-logo.png";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#programme", label: "Programme" },
-  { href: "#participants", label: "Participants" },
-  { href: "#vote", label: "Vote" },
-  { href: "#livestream", label: "Livestream" },
-  { href: "#schedule", label: "Schedule" },
-  { href: "#support", label: "Support" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+  { href: "/#programme", label: "Programme" },
+  { href: "/#participants", label: "Participants" },
+  { href: "/#vote", label: "Vote" },
+  { href: "/#livestream", label: "Livestream" },
+  { href: "/#schedule", label: "Schedule" },
+  { href: "/sponsorship", label: "Sponsorship" },
+  { href: "/#support", label: "Support" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function SiteNav() {
@@ -20,7 +21,7 @@ export function SiteNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <a href="#top" className="flex items-center gap-2">
+        <a href="/#top" className="flex items-center gap-2">
           <img
             src={logoUrl}
             alt="ZOERD × Zcash Ghana Events logo"
@@ -47,7 +48,7 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
-            <a href="#vote">Vote Now</a>
+            <a href="/#vote">Vote Now</a>
           </Button>
           <button
             type="button"
