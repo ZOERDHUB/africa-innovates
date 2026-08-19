@@ -11,10 +11,11 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
   const livestream = config?.livestream_url ?? FALLBACK_CONFIG.livestream_url;
   const eventDate = config?.event_date?.startsWith("[") ? FALLBACK_CONFIG.event_date : config?.event_date ?? FALLBACK_CONFIG.event_date;
   const duration = config?.duration?.startsWith("[") ? FALLBACK_CONFIG.duration : config?.duration ?? FALLBACK_CONFIG.duration;
+  const location = config?.location?.startsWith("[") ? FALLBACK_CONFIG.location : config?.location ?? FALLBACK_CONFIG.location;
 
   const facts = [
     { icon: CalendarDays, label: "Date", value: eventDate },
-    { icon: MapPin, label: "Location", value: config?.location ?? "[LOCATION TO BE CONFIRMED]" },
+    { icon: MapPin, label: "Location", value: location },
     { icon: Clock, label: "Duration", value: duration },
     {
       icon: Users2,

@@ -213,17 +213,15 @@ function SponsorshipPage() {
       <SiteNav />
       <main className="pt-16">
         {/* Hero */}
-        <section className="grid-backdrop border-b border-border/60">
+        <section className="border-b border-border/60 bg-background">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">
               ZEC Sponsorship &amp; Community Support Programme
             </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">
-              <span className="text-gradient-brand">
-                Support Developers. Build Privacy. Grow the Zcash Ecosystem.
-              </span>
+            <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+              Support Developers. Build Privacy. Grow the Zcash Ecosystem.
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-foreground/90">
               The ZOERDHUB × Zcash Ghana Technology Residency is a community-supported developer
               ecosystem. Sponsorship is an ecosystem-building initiative — not advertising. Every
               contribution goes toward developer education, privacy technology, ecosystem growth,

@@ -15,8 +15,9 @@ export const FALLBACK_CONFIG = {
   headline: "Building the Future of Privacy, Blockchain & Innovation in Africa",
   event_date: "5–28 September 2026",
   duration: "3 Weeks",
+  location: "ZOERDHUB Nigeria",
   livestream_url: "https://www.youtube.com/@ZOERDHubTV",
-  vote_price_zec: "[TO BE CONFIRMED]",
+  vote_price_zec: "0.001",
 } as const;
 
 export function useSiteConfig() {

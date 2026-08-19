@@ -64,7 +64,8 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
 
   if (!participant) return null;
 
-  const price = votingDay?.vote_price_zec || config?.vote_price_zec || "[TO BE CONFIRMED]";
+  const configuredPrice = config?.vote_price_zec;
+  const price = votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") ? "0.001" : configuredPrice) || "0.001";
   const votingOpen = Boolean(votingDay?.is_open) && participant.voting_enabled;
 
   async function handleSubmit(event: React.FormEvent) {
@@ -157,7 +158,7 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
           <Step n={4} title="Memo / message">
             <p className="text-sm leading-relaxed text-muted-foreground">
               When sending your vote, include the participant&apos;s tag in the wallet
-              message/memo field. The tag is how the team associates your payment with the right
+              message/memo field. The tag is how the team associates your vote with the right
               participant.
             </p>
             <CopyField
@@ -169,7 +170,7 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
             />
           </Step>
 
-          <Step n={5} title="Send payment">
+          <Step n={5} title="Cast your vote">
             <dl className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-lg border border-border p-3">
                 <dt className="text-xs uppercase tracking-wide text-muted-foreground">Wallet</dt>
@@ -197,7 +198,7 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
             </p>
           </Step>
 
-          <Step n={6} title="Payment verification">
+          <Step n={6} title="Vote verification">
             {!votingOpen ? (
               <p className="flex gap-2 rounded-lg border border-border bg-muted/40 p-3 text-sm text-muted-foreground">
                 <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" />
@@ -237,7 +238,7 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
             </form>
 
             <p className="text-xs leading-relaxed text-muted-foreground">
-              Your payment will be verified before the vote is counted. Submitting a transaction ID
+              Your vote transaction will be verified before the vote is counted. Submitting a transaction ID
               does not count a vote on its own.
             </p>
 

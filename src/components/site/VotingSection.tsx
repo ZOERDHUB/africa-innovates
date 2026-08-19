@@ -2,6 +2,7 @@ import placeholder from "@/assets/participant-placeholder.jpg";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "./SectionHeading";
 import {
+  FALLBACK_CONFIG,
   formatDateTime,
   useLeaderboard,
   type Participant,
@@ -19,7 +20,8 @@ type Props = {
 
 export function VotingSection({ config, votingDay, votingDays, participants, onVote }: Props) {
   const { data: leaderboard, isLoading } = useLeaderboard(votingDay?.day_number ?? null);
-  const price = votingDay?.vote_price_zec || config?.vote_price_zec || "[TO BE CONFIRMED]";
+  const configuredPrice = config?.vote_price_zec;
+  const price = votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") ? FALLBACK_CONFIG.vote_price_zec : configuredPrice) || FALLBACK_CONFIG.vote_price_zec;
   const totalVotes = (leaderboard ?? []).reduce((sum, row) => sum + Number(row.verified_votes), 0);
   const previousDays = (votingDays ?? []).filter((d) => d.id !== votingDay?.id);
 
@@ -77,7 +79,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
             </dl>
 
             <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
-              A vote is never counted by clicking a button. Every vote is tied to a Zcash payment
+              A vote is never counted by clicking a button. Every vote uses a Zcash vote transaction
               that is checked against the voting wallet, amount, memo tag, confirmations and voting
               day before it is counted.
             </p>
@@ -133,6 +135,21 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
               </ol>
             )}
           </div>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-surface">
+          <div className="aspect-video w-full">
+            <iframe
+              src="https://www.youtube.com/embed/bbfv28wS7hc"
+              title="How to use a Zcash wallet to vote"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="h-full w-full"
+            />
+          </div>
+          <p className="border-t border-border px-5 py-4 text-sm text-muted-foreground">
+            Watch this guide to learn how to use a Zcash wallet when casting your vote.
+          </p>
         </div>
 
         <div className="mt-10">
