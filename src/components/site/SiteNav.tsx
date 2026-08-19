@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import logoUrl from "@/assets/zoerd-zcash-logo.png";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#programme", label: "Programme" },
-  { href: "#participants", label: "Participants" },
-  { href: "#vote", label: "Vote" },
-  { href: "#livestream", label: "Livestream" },
-  { href: "#schedule", label: "Schedule" },
-  { href: "#support", label: "Support" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+  { href: "/#programme", label: "Programme" },
+  { href: "/#participants", label: "Participants" },
+  { href: "/#vote", label: "Vote" },
+  { href: "/#livestream", label: "Livestream" },
+  { href: "/#schedule", label: "Schedule" },
+  { href: "/sponsorship", label: "Sponsorship" },
+  { href: "/#support", label: "Support" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function SiteNav() {
