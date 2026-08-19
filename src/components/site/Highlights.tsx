@@ -1,22 +1,22 @@
 import { SectionHeading } from "./SectionHeading";
 
 const JOURNEY = [
-  { step: "1", title: "Blockchain Fundamentals", facilitator: "zkSquirrel", time: "6pm GMT" },
-  { step: "2", title: "Understanding Financial Privacy", facilitator: "zkSquirrel", time: "6pm GMT" },
-  { step: "3", title: "Zcash Architecture", facilitator: "zkSquirrel", time: "6pm GMT" },
-  { step: "4", title: "Development Environment", facilitator: "zkSquirrel", time: "6pm GMT" },
-  { step: "5", title: "Wallet Development", facilitator: "Lowo", time: "6pm GMT" },
-  { step: "6", title: "Shielded Payments", facilitator: "Dismad", time: "6pm GMT" },
-  { step: "7", title: "Zcash SDKs", facilitator: "Lowo", time: "6pm GMT" },
-  { step: "8", title: "Backend Development", facilitator: "Gilmore", time: "12 noon GMT" },
-  { step: "9", title: "Full Stack Development", facilitator: "Lowo", time: "6pm GMT" },
-  { step: "10", title: "Privacy Payment Applications", facilitator: "Inspire_s", time: "12 noon GMT" },
-  { step: "11", title: "Security", facilitator: "ZOERD", time: "12 noon GMT+1" },
-  { step: "12", title: "Testing", facilitator: "ZOERD", time: "12 noon GMT+1" },
-  { step: "13", title: "Production Development", facilitator: "ZOERD", time: "12 noon GMT+1" },
-  { step: "14", title: "Open Source Development", facilitator: "Vancube", time: "12 noon GMT+1" },
-  { step: "15", title: "Startup & Grant Writing", facilitator: "Gilmore", time: "12 noon GMT+1" },
-  { step: "16", title: "Demo Day Preparation", facilitator: "ZOERD", time: "12 noon GMT+1" },
+  { step: "1", title: "Blockchain Fundamentals", facilitator: "zkSquirrel", time: "7:00 PM WAT" },
+  { step: "2", title: "Understanding Financial Privacy", facilitator: "zkSquirrel", time: "7:00 PM WAT" },
+  { step: "3", title: "Zcash Architecture", facilitator: "zkSquirrel", time: "7:00 PM WAT" },
+  { step: "4", title: "Development Environment", facilitator: "zkSquirrel", time: "7:00 PM WAT" },
+  { step: "5", title: "Wallet Development", facilitator: "Lowo", time: "7:00 PM WAT" },
+  { step: "6", title: "Shielded Payments", facilitator: "Dismad", time: "7:00 PM WAT" },
+  { step: "7", title: "Zcash SDKs", facilitator: "Lowo", time: "7:00 PM WAT" },
+  { step: "8", title: "Backend Development", facilitator: "Gilmore", time: "1:00 PM WAT" },
+  { step: "9", title: "Full Stack Development", facilitator: "Lowo", time: "7:00 PM WAT" },
+  { step: "10", title: "Privacy Payment Applications", facilitator: "Inspire_s", time: "1:00 PM WAT" },
+  { step: "11", title: "Security", facilitator: "ZOERD", time: "1:00 PM WAT" },
+  { step: "12", title: "Testing", facilitator: "ZOERD", time: "1:00 PM WAT" },
+  { step: "13", title: "Production Development", facilitator: "ZOERD", time: "1:00 PM WAT" },
+  { step: "14", title: "Open Source Development", facilitator: "Vancube", time: "1:00 PM WAT" },
+  { step: "15", title: "Startup & Grant Writing", facilitator: "Gilmore", time: "1:00 PM WAT" },
+  { step: "16", title: "Demo Day Preparation", facilitator: "ZOERD", time: "1:00 PM WAT" },
 ];
 
 export function Highlights() {

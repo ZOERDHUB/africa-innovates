@@ -29,7 +29,7 @@ create table public.site_config (
   event_kicker text not null default 'ZOERDHUB × Zcash Ghana',
   headline text not null default 'Building the Future of Privacy, Blockchain & Innovation in Africa',
   description text not null default 'A residency bringing together developers, builders, researchers and innovators to learn, build, collaborate and explore privacy-focused blockchain technology.',
-  event_date text not null default '1–21 September 2026',
+  event_date text not null default '5–28 September 2026',
   location text not null default '[LOCATION TO BE CONFIRMED]',
   duration text not null default '3 Weeks',
   organizers text not null default 'ZOERD Privacy Blockchain & AI Innovation Hub',
