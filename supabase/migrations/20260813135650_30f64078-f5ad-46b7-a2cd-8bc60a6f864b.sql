@@ -26,7 +26,7 @@ begin new.updated_at = now(); return new; end $$;
 create table public.site_config (
   id integer primary key default 1,
   event_title text not null default 'Technology Residency',
-  event_kicker text not null default 'ZOERDHUB × ZCASH GHANA',
+  event_kicker text not null default 'ZOERDHUB × Zcash Ghana',
   headline text not null default 'Building the Future of Privacy, Blockchain & Innovation in Africa',
   description text not null default 'A residency bringing together developers, builders, researchers and innovators to learn, build, collaborate and explore privacy-focused blockchain technology.',
   event_date text not null default '1–21 September 2026',

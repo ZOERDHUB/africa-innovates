@@ -1,5 +1,6 @@
 update public.site_config
 set
+  event_kicker = 'ZOERDHUB × Zcash Ghana',
   event_date = '1–21 September 2026',
   duration = '3 Weeks'
 where id = 1;

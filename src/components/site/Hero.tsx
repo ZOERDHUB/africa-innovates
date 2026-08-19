@@ -5,7 +5,7 @@ import type { SiteConfig } from "@/lib/residency";
 import { FALLBACK_CONFIG } from "@/lib/residency";
 
 export function Hero({ config }: { config: SiteConfig | null | undefined }) {
-  const kicker = config?.event_kicker ?? FALLBACK_CONFIG.event_kicker;
+  const kicker = FALLBACK_CONFIG.event_kicker;
   const title = config?.event_title ?? FALLBACK_CONFIG.event_title;
   const headline = config?.headline ?? FALLBACK_CONFIG.headline;
   const livestream = config?.livestream_url ?? FALLBACK_CONFIG.livestream_url;
@@ -36,7 +36,7 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
       <div className="absolute inset-0 grid-backdrop opacity-40" />
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-[0.22em] text-primary">
           {kicker}
         </span>
 
