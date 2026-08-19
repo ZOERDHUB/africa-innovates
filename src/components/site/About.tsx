@@ -43,9 +43,9 @@ const TIMELINE = [
   },
   {
     icon: Clock,
-    date: "2 — 19 September 2026",
+    date: "Programme Duration: 3 Weeks",
     title: "Three Weeks of Building",
-    body: "Education, practical development, daily challenges, community interaction and project building.",
+    body: "The programme combines education, practical development, daily challenges, community interaction, project building and friendly competition.",
   },
   {
     icon: PartyPopper,
@@ -83,7 +83,7 @@ export function About() {
         <SectionHeading
           eyebrow="Programme Timeline"
           title="Key dates and milestones"
-          description="A clear arc from arrival to demo day."
+          description="A clear arc from arrival to departure."
         />
 
         <div className="mt-10">

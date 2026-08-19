@@ -94,7 +94,7 @@ export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
           <SectionHeading
             eyebrow="Awards"
             title="Recognition on Demo Day + Gala Night"
-            description="Residents present the projects they've built. The Zcash community follows the presentations, celebrates the builders and participates in the final recognition process."
+            description="Residents present the projects they've built. The Zcash community follows the presentations, celebrates the builders and participates in the final recognition and voting process."
             align="center"
           />
 

@@ -11,9 +11,9 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
   const livestream = config?.livestream_url ?? FALLBACK_CONFIG.livestream_url;
 
   const facts = [
-    { icon: CalendarDays, label: "Date", value: config?.event_date ?? "[DATE TO BE CONFIRMED]" },
+    { icon: CalendarDays, label: "Date", value: config?.event_date ?? FALLBACK_CONFIG.event_date },
     { icon: MapPin, label: "Location", value: config?.location ?? "[LOCATION TO BE CONFIRMED]" },
-    { icon: Clock, label: "Duration", value: config?.duration ?? "[DURATION TO BE CONFIRMED]" },
+    { icon: Clock, label: "Duration", value: config?.duration ?? FALLBACK_CONFIG.duration },
     {
       icon: Users2,
       label: "Organizers",

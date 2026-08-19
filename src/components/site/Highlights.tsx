@@ -24,7 +24,7 @@ export function Highlights() {
     <section id="programme" className="mx-auto max-w-6xl px-4 py-20">
       <SectionHeading
         eyebrow="The Learning Journey"
-        title="16-step residency curriculum"
+        title="16-Step Learning Journey"
         description="From blockchain fundamentals to demo day, each session builds toward shipping a real privacy-focused project."
       />
 

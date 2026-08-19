@@ -13,6 +13,8 @@ export const FALLBACK_CONFIG = {
   event_kicker: "ZOERDHUB × ZCASH GHANA",
   event_title: "Technology Residency",
   headline: "Building the Future of Privacy, Blockchain & Innovation in Africa",
+  event_date: "1–21 September 2026",
+  duration: "3 Weeks",
   livestream_url: "https://www.youtube.com/@ZOERDHubTV",
   vote_price_zec: "[TO BE CONFIRMED]",
 } as const;
