@@ -85,6 +85,7 @@ function Index() {
         />
         <Livestream config={config} />
         <Schedule items={schedule} />
+        <Sponsorship />
         <Support config={config} />
         <Faq items={faq} />
       </main>
