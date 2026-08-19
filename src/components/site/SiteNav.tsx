@@ -24,7 +24,7 @@ export function SiteNav() {
         <a href="/#top" className="flex items-center gap-2">
           <img
             src={logoUrl}
-            alt="ZOERD × Zcash Ghana Events logo"
+            alt="ZOERDHUB × Zcash Ghana Events logo"
             className="h-10 w-10 object-contain"
             width={40}
             height={40}

@@ -189,7 +189,7 @@ export const Route = createFileRoute("/sponsorship")({
       {
         name: "description",
         content:
-          "Sponsor the ZOERD × Zcash Ghana Technology Residency with ZEC. Sponsorship tiers, Sponsor a Resident, community fundraising target, privacy options and transparent reporting.",
+          "Sponsor the ZOERDHUB × Zcash Ghana Technology Residency with ZEC. Sponsorship tiers, Sponsor a Resident, community fundraising target, privacy options and transparent reporting.",
       },
       { property: "og:title", content: "Support the Residency with ZEC" },
       {
@@ -224,7 +224,7 @@ function SponsorshipPage() {
               </span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground">
-              The ZOERD × Zcash Ghana Technology Residency is a community-supported developer
+              The ZOERDHUB × Zcash Ghana Technology Residency is a community-supported developer
               ecosystem. Sponsorship is an ecosystem-building initiative — not advertising. Every
               contribution goes toward developer education, privacy technology, ecosystem growth,
               community participation and the emergence of new builders across Africa.

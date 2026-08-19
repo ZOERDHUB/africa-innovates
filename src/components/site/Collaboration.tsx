@@ -16,7 +16,7 @@ export function Collaboration() {
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
           eyebrow="Collaboration"
-          title="ZOERD × Zcash Ghana"
+          title="ZOERDHUB × Zcash Ghana"
           description="The residency is organised through an equal collaboration between two organisations working on privacy, blockchain and developer capacity in Africa."
           align="center"
         />

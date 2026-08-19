@@ -1,6 +1,6 @@
 # Africa Innovates
 
-# ZOERD × ZCASH GHANA RESIDENCY WEBSITE
+# ZOERDHUB × ZCASH GHANA RESIDENCY WEBSITE
 
 ## Full Website Design & Development Prompt
 
@@ -71,7 +71,7 @@ Create a strong hero section at the top of the website.
 
 Include:
 
-**ZOERD × ZCASH GHANA**
+**ZOERDHUB × ZCASH GHANA**
 
 **Technology Residency**
 
@@ -133,7 +133,7 @@ Use editable placeholder content for anything unknown.
 
 ---
 
-# 4. ZOERD × ZCASH GHANA
+# 4. ZOERDHUB × ZCASH GHANA
 
 Create a dedicated collaboration section.
 
@@ -979,7 +979,7 @@ The initial version should include:
 * Responsive landing page
 * About section
 * Programme section
-* ZOERD × Zcash Ghana section
+* ZOERDHUB × Zcash Ghana section
 * Participant cards
 * Voting interface
 * Wallet-copy functionality

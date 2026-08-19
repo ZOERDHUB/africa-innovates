@@ -12,7 +12,7 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Organiser Sign In | ZOERD Residency" },
-      { name: "description", content: "Sign in to manage the ZOERD × Zcash Ghana residency." },
+      { name: "description", content: "Sign in to manage the ZOERDHUB × Zcash Ghana residency." },
       { property: "og:title", content: "Organiser Sign In | ZOERD Residency" },
       { property: "og:description", content: "Organiser access to the residency dashboard." },
       { property: "og:type", content: "website" },

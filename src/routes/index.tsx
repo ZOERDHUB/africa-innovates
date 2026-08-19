@@ -27,13 +27,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ZOERD × Zcash Ghana Technology Residency" },
+      { title: "ZOERDHUB × Zcash Ghana Technology Residency" },
       {
         name: "description",
         content:
           "Privacy, blockchain and innovation residency by ZOERD and Zcash Ghana. Watch the livestream, vote for residents with Zcash and support the programme.",
       },
-      { property: "og:title", content: "ZOERD × Zcash Ghana Technology Residency" },
+      { property: "og:title", content: "ZOERDHUB × Zcash Ghana Technology Residency" },
       {
         property: "og:description",
         content:

@@ -23,9 +23,9 @@ import {
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Residency Admin | ZOERD × Zcash Ghana" },
+      { title: "Residency Admin | ZOERDHUB × Zcash Ghana" },
       { name: "description", content: "Manage residency participants, voting days and votes." },
-      { property: "og:title", content: "Residency Admin | ZOERD × Zcash Ghana" },
+      { property: "og:title", content: "Residency Admin | ZOERDHUB × Zcash Ghana" },
       { property: "og:description", content: "Organiser dashboard for the residency programme." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -10,7 +10,7 @@ export type FaqItem = Tables<"faq_items">;
 export type VoteSubmission = Tables<"vote_submissions">;
 
 export const FALLBACK_CONFIG = {
-  event_kicker: "ZOERD × ZCASH GHANA",
+  event_kicker: "ZOERDHUB × ZCASH GHANA",
   event_title: "Technology Residency",
   headline: "Building the Future of Privacy, Blockchain & Innovation in Africa",
   livestream_url: "https://www.youtube.com/@ZOERDHubTV",
