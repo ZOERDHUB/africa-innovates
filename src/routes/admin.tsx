@@ -344,11 +344,12 @@ function TransactionsAdmin() {
   });
 
   async function review(id: string, status: "verified" | "rejected" | "duplicate", votes: number) {
+    const verifiedVotes = Math.min(Math.max(Math.trunc(votes) || 1, 1), 10);
     const { error } = await supabase
       .from("vote_submissions")
       .update({
         status,
-        votes: status === "verified" ? votes : 0,
+        votes: status === "verified" ? verifiedVotes : 0,
         verified_at: status === "verified" ? new Date().toISOString() : null,
       })
       .eq("id", id);
@@ -400,8 +401,12 @@ function TransactionRow({
         <Input
           type="number"
           min={1}
+          max={10}
           value={votes}
-          onChange={(e) => setVotes(Number(e.target.value))}
+          onChange={(e) => {
+            const next = Number(e.target.value);
+            setVotes(Number.isFinite(next) ? Math.min(Math.max(next, 1), 10) : 1);
+          }}
           className="h-9 w-24"
         />
         <Button size="sm" variant="hero" onClick={() => onReview(submission.id, "verified", votes)}>

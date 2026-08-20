@@ -109,9 +109,9 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Vote for {participant.full_name}</DialogTitle>
+          <DialogTitle>Support {participant.full_name}</DialogTitle>
           <DialogDescription>
-            Votes are cast with Zcash and counted only after the transaction is verified.
+            Community Choice votes use Zcash and count only after the contribution is verified.
           </DialogDescription>
         </DialogHeader>
 
@@ -136,13 +136,13 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
             </div>
           </Step>
 
-          <Step n={2} title="How the vote works">
+          <Step n={2} title="How community support works">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              To cast a vote for this participant, send the required amount of Zcash to the voting
-              wallet below and include the participant tag in the transaction memo.
+              To support this participant, send Zcash to the voting wallet below and include the
+              participant tag in the transaction memo. Every {price} ZEC is one Community Choice vote.
             </p>
             <p className="rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary">
-              1 vote = {price} ZEC
+              Community Support Vote = {price} ZEC
             </p>
           </Step>
 
@@ -195,6 +195,10 @@ export function VoteDialog({ participant, config, votingDay, open, onOpenChange 
               <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               Send the required amount of ZEC to the voting wallet and include the participant
               ID/tag in the transaction memo/message.
+            </p>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              A wallet may contribute a maximum of 10 verified votes for this resident on each voting day.
+              Network and exchange fees do not count as votes.
             </p>
           </Step>
 

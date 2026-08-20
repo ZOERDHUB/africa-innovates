@@ -127,7 +127,7 @@ export function Schedule({ items }: { items: ScheduleItem[] | undefined }) {
           <SectionHeading
             eyebrow="Awards"
             title="Recognition on Demo Day + Gala Night"
-            description="Residents present the projects they've built. The Zcash community follows the presentations, celebrates the builders and participates in the final recognition and voting process."
+            description="The Community Choice Award is determined by verified ZEC support votes. All other awards are assessed independently by facilitators and judges on resident performance and project quality."
             align="center"
           />
 
