@@ -5,7 +5,8 @@ set
   organizers = 'ZOERDHUB Privacy Blockchain & AI Innovation Hub',
   vote_price_zec = '0.01',
   x_url = 'https://x.com/zoerdhub',
-  telegram_url = 'https://t.me/ZOERDHUBCOMMUNITY'
+  telegram_url = 'https://t.me/ZOERDHUBCOMMUNITY',
+  contact_email = 'contact@zoerd.com'
 where id = 1;
 
 update public.voting_days
@@ -30,5 +31,13 @@ set question = 'Where do I send ZEC?',
 where question = 'Where do I send Zcash?';
 
 update public.faq_items
-set answer = 'Yes. You may cast multiple votes while voting is open.'
+set answer = 'YES — Each vote costs 0.01 ZEC, and the more ZEC you cast, the more votes are counted.'
 where question = 'Can I vote multiple times?';
+
+update public.faq_items
+set answer = 'YES — Voting is organised per day. Each open voting day accepts new votes.'
+where question = 'Can I vote every day?';
+
+update public.faq_items
+set answer = 'It is marked rejected and no vote is counted. Contact the organisers if you believe this is an error.'
+where question = 'What happens if my transaction is not verified?';

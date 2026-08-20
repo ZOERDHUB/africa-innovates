@@ -41,7 +41,7 @@ create table public.site_config (
   youtube_url text not null default 'https://www.youtube.com/@ZOERDHubTV',
   x_url text not null default '',
   telegram_url text not null default '',
-  contact_email text not null default '',
+  contact_email text not null default 'contact@zoerd.com',
   updated_at timestamptz not null default now(),
   constraint site_config_singleton check (id = 1)
 );
@@ -243,8 +243,8 @@ insert into public.faq_items (question, answer, sort_order) values
  ('What happens if I forget the memo?','The team cannot automatically associate your vote transaction with a participant. Contact the organisers with your transaction ID.',8),
  ('How is my vote verified?','Your vote transaction is checked against the official voting wallet, amount, memo tag, confirmation status and voting day before the vote is counted.',9),
  ('When does voting close?','Each voting day has its own opening and closing time, shown in the Daily Participant Voting section.',10),
- ('Can I vote multiple times?','Yes. You may cast multiple votes while voting is open.',11),
- ('Can I vote every day?','Voting is organised per day. Each open voting day accepts new votes.',12),
+ ('Can I vote multiple times?','YES — Each vote costs 0.01 ZEC, and the more ZEC you cast, the more votes are counted.',11),
+ ('Can I vote every day?','YES — Voting is organised per day. Each open voting day accepts new votes.',12),
  ('How can I support the event?','Use the Support the Residency section and send ZEC to the dedicated support wallet.',13),
  ('Where can I watch the livestream?','On the ZOERDHUB TV YouTube channel, linked in the livestream section.',14),
- ('What happens if my transaction is not verified?','It is marked rejected or duplicate and no vote is counted. Contact the organisers if you believe this is an error.',15);
+ ('What happens if my transaction is not verified?','It is marked rejected and no vote is counted. Contact the organisers if you believe this is an error.',15);

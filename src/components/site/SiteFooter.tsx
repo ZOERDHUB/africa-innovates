@@ -16,6 +16,7 @@ const LINKS = [
 
 export function SiteFooter({ config }: { config: SiteConfig | null | undefined }) {
   const youtube = config?.youtube_url || FALLBACK_CONFIG.livestream_url;
+  const contactEmail = config?.contact_email || "contact@zoerd.com";
 
   return (
     <footer className="border-t border-border bg-surface/50">
@@ -65,13 +66,9 @@ export function SiteFooter({ config }: { config: SiteConfig | null | undefined }
             <li><a href="https://t.me/ZOERDHUBCOMMUNITY" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — ZOERDHUB</a></li>
             <li><a href="https://t.me/+hR4ac246XuVjNzI0" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — Zcash Ghana</a></li>
             <li className="text-muted-foreground">
-              {config?.contact_email ? (
-                <a href={`mailto:${config.contact_email}`} className="hover:text-foreground">
-                  {config.contact_email}
-                </a>
-              ) : (
-                "Email — [CONTACT TO BE ADDED]"
-              )}
+              <a href={`mailto:${contactEmail}`} className="hover:text-foreground">
+                {contactEmail}
+              </a>
             </li>
           </ul>
         </div>
