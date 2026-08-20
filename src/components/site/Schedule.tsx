@@ -76,7 +76,7 @@ const FALLBACK_TIMETABLE = [
   ["Sept. 17", "1:00 PM WAT", "Open Source Development + Contribution Challenge", "Vancube", "Week 3 — Ship, Open Source & Demo"],
   ["Sept. 18", "1:00 PM WAT", "Startup & Grant Writing + Project Pitch Challenge", "Gilmore", "Week 3 — Ship, Open Source & Demo"],
   ["Sept. 19", "1:00 PM WAT", "Demo Day Preparation + Final Project Review", "ZOERDHUB", "Week 3 — Ship, Open Source & Demo"],
-  ["Sept. 20", "", "Demo Day + Gala Night", "", "Final presentations, awards, recognition, networking and celebration."],
+  ["Sept. 20", "", "Demo Day + Gala Night", "ZOERDHUB", "Final presentations, awards, recognition, networking and celebration."],
 ].map(([day_label, time_label, session_title, facilitator, description]) => ({
   day_label,
   time_label,

@@ -62,7 +62,6 @@ export function SiteFooter({ config }: { config: SiteConfig | null | undefined }
             </li>
             <li><a href="https://x.com/zoerdhub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">X / Twitter — @zoerdhub</a></li>
             <li><a href="https://x.com/zcashgh" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">X / Twitter — @ZcashGH</a></li>
-            <li><a href="https://t.me/zoerdhub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — @zoerdhub</a></li>
             <li><a href="https://t.me/ZOERDHUBCOMMUNITY" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — ZOERDHUB</a></li>
             <li><a href="https://t.me/+hR4ac246XuVjNzI0" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Telegram — Zcash Ghana</a></li>
             <li className="text-muted-foreground">
