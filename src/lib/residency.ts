@@ -9,6 +9,39 @@ export type ScheduleItem = Tables<"schedule_items">;
 export type FaqItem = Tables<"faq_items">;
 export type VoteSubmission = Tables<"vote_submissions">;
 
+const RESIDENT_ROSTER_UPDATED_AT = "2026-08-26T00:00:00.000Z";
+
+// Keep the published roster available while the Supabase participant records are
+// being updated. Image filenames deliberately match each resident's username.
+const RESIDENT_ROSTER: Participant[] = [
+  ["00000000-0000-4000-8000-000000000001", "RES-001", "RES001", "Scofield", "@Scofield", "/residents/Scofield.jpeg"],
+  ["00000000-0000-4000-8000-000000000002", "RES-002", "RES002", "Mustapha QAUNT", "@Mustapha_QAUNT", "/residents/Mustapha_QAUNT.jpg"],
+  ["00000000-0000-4000-8000-000000000003", "RES-003", "RES003", "Jemmy", "@Jemmy", "/residents/Jemmy.jpeg"],
+  ["00000000-0000-4000-8000-000000000004", "RES-004", "RES004", "IKE", "@IKE", "/residents/IKE.jpg"],
+  ["00000000-0000-4000-8000-000000000005", "RES-005", "RES005", "Hybridthegeek", "@Hybridthegeek", "/residents/Hybridthegeek.jpg"],
+  ["00000000-0000-4000-8000-000000000006", "RES-006", "RES006", "Gwill", "@Gwill", "/residents/Gwill.jpeg"],
+  ["00000000-0000-4000-8000-000000000007", "RES-007", "RES007", "angelnath", "@angelnath", "/residents/angelnath.jpg"],
+  ["00000000-0000-4000-8000-000000000008", "RES-008", "RES008", "Akwenuke Daniel", "@Akwenuke Daniel", "/residents/Akwenuke%20Daniel.jpeg"],
+  ["00000000-0000-4000-8000-000000000009", "RES-009", "RES009", "Dark Blanche", "@Dark_Blanche", "/residents/%40Dark_Blanche.jpg"],
+  ["00000000-0000-4000-8000-000000000010", "RES-010", "RES010", "0xWeb3DevRel", "@0xWeb3DevRel", "/residents/%400xWeb3DevRel.jpg"],
+].map(([id, participant_code, participant_tag, full_name, username, image_url], index) => ({
+  id,
+  participant_code,
+  participant_tag,
+  full_name,
+  username,
+  image_url,
+  bio: "",
+  specialization: "",
+  is_demo: false,
+  is_active: true,
+  // Voting is enabled by the database migration, which supplies real record IDs.
+  voting_enabled: false,
+  sort_order: index + 1,
+  created_at: RESIDENT_ROSTER_UPDATED_AT,
+  updated_at: RESIDENT_ROSTER_UPDATED_AT,
+}));
+
 export const FALLBACK_CONFIG = {
   event_kicker: "ZOERDHUB × Zcash Ghana",
   event_title: "Technology Residency",
@@ -41,7 +74,10 @@ export function useParticipants() {
         .eq("is_active", true)
         .order("sort_order", { ascending: true });
       if (error) throw error;
-      return data ?? [];
+      const publishedParticipants = data ?? [];
+      return !publishedParticipants.length || publishedParticipants.every((participant) => participant.is_demo)
+        ? RESIDENT_ROSTER
+        : publishedParticipants;
     },
   });
 }
