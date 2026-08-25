@@ -17,7 +17,7 @@ export function Participants({ participants, loading, votingDay, onVote }: Props
       <SectionHeading
         eyebrow="Participants"
         title="Meet the Residents"
-        description="Residents taking part in the residency. Profiles marked as demo are placeholders until the official list is published."
+        description="Meet the builders taking part in the residency. Each resident has a unique public ID."
       />
 
       {loading ? (
