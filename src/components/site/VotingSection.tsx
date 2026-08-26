@@ -22,7 +22,19 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
   const { data: leaderboard, isLoading } = useLeaderboard(votingDay?.day_number ?? null);
   const configuredPrice = config?.vote_price_zec;
   const price = votingDay?.vote_price_zec === "0.001" ? FALLBACK_CONFIG.vote_price_zec : votingDay?.vote_price_zec || (configuredPrice?.startsWith("[") || configuredPrice === "0.001" ? FALLBACK_CONFIG.vote_price_zec : configuredPrice) || FALLBACK_CONFIG.vote_price_zec;
-  const totalVotes = (leaderboard ?? []).reduce((sum, row) => sum + Number(row.verified_votes), 0);
+  const leaderboardEntries = (participants ?? [])
+    .map((participant) => ({
+      participant,
+      verifiedVotes: Number(
+        leaderboard?.find((row) => row.participant_id === participant.id)?.verified_votes ?? 0,
+      ),
+    }))
+    .sort(
+      (a, b) =>
+        b.verifiedVotes - a.verifiedVotes ||
+        a.participant.sort_order - b.participant.sort_order,
+    );
+  const totalVotes = leaderboardEntries.reduce((sum, entry) => sum + entry.verifiedVotes, 0);
   const previousDays = (votingDays ?? []).filter((d) => d.id !== votingDay?.id);
 
   return (
@@ -94,36 +106,35 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
 
             {isLoading ? (
               <p className="mt-6 text-sm text-muted-foreground">Loading results…</p>
-            ) : !leaderboard?.length ? (
-              <p className="mt-6 text-sm text-muted-foreground">No results yet.</p>
+            ) : !leaderboardEntries.length ? (
+              <p className="mt-6 text-sm text-muted-foreground">Participants will appear here soon.</p>
             ) : (
               <ol className="mt-5 space-y-2">
-                {leaderboard.map((row, index) => {
-                  const participant = participants?.find((p) => p.id === row.participant_id);
+                {leaderboardEntries.map(({ participant, verifiedVotes }, index) => {
                   return (
                     <li
-                      key={row.participant_id}
+                      key={participant.id}
                       className="flex items-center gap-3 rounded-xl border border-border bg-background/60 p-3"
                     >
                       <span className="w-6 text-center text-sm font-bold text-primary">
                         {index + 1}
                       </span>
                       <img
-                        src={row.image_url || placeholder}
-                        alt={row.full_name}
+                        src={participant.image_url || placeholder}
+                        alt={participant.full_name}
                         loading="lazy"
                         width={40}
                         height={40}
                         className="h-10 w-10 rounded-lg object-cover"
                       />
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium">{row.full_name}</p>
+                        <p className="truncate text-sm font-medium">{participant.full_name}</p>
                         <p className="truncate text-xs text-muted-foreground">
-                          {row.participant_code}
+                          {participant.participant_code} · {participant.username || "—"}
                         </p>
                       </div>
-                      <span className="text-sm font-semibold">{row.verified_votes}</span>
-                      {participant && votingDay?.is_open && participant.voting_enabled ? (
+                      <span className="text-sm font-semibold">{verifiedVotes}</span>
+                      {votingDay?.is_open && participant.voting_enabled ? (
                         <Button size="sm" variant="subtle" onClick={() => onVote(participant)}>
                           Support
                         </Button>
