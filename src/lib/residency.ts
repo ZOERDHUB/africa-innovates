@@ -24,6 +24,7 @@ const RESIDENT_ROSTER: Participant[] = [
   ["00000000-0000-4000-8000-000000000008", "RES-008", "RES008", "Akwenuke Daniel", "@Akwenuke Daniel", "/residents/Akwenuke%20Daniel.jpeg"],
   ["00000000-0000-4000-8000-000000000009", "RES-009", "RES009", "Dark Blanche", "@Dark_Blanche", "/residents/%40Dark_Blanche.jpg"],
   ["00000000-0000-4000-8000-000000000010", "RES-010", "RES010", "0xWeb3DevRel", "@0xWeb3DevRel", "/residents/%400xWeb3DevRel.jpg"],
+  ["00000000-0000-4000-8000-000000000011", "RES-011", "RES011", "Keoshua001", "@Keoshua001", "/residents/IMG-20260825-WA0016~2.jpg"],
 ].map(([id, participant_code, participant_tag, full_name, username, image_url], index) => ({
   id,
   participant_code,

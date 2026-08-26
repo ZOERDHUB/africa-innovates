@@ -22,7 +22,8 @@ insert into public.participants (
   ('RES-007', 'RES007', 'angelnath', '@angelnath', '/residents/angelnath.jpg', '', '', false, true, true, 7),
   ('RES-008', 'RES008', 'Akwenuke Daniel', '@Akwenuke Daniel', '/residents/Akwenuke%20Daniel.jpeg', '', '', false, true, true, 8),
   ('RES-009', 'RES009', 'Dark Blanche', '@Dark_Blanche', '/residents/%40Dark_Blanche.jpg', '', '', false, true, true, 9),
-  ('RES-010', 'RES010', '0xWeb3DevRel', '@0xWeb3DevRel', '/residents/%400xWeb3DevRel.jpg', '', '', false, true, true, 10)
+  ('RES-010', 'RES010', '0xWeb3DevRel', '@0xWeb3DevRel', '/residents/%400xWeb3DevRel.jpg', '', '', false, true, true, 10),
+  ('RES-011', 'RES011', 'Keoshua001', '@Keoshua001', '/residents/IMG-20260825-WA0016~2.jpg', '', '', false, true, true, 11)
 on conflict (participant_code) do update set
   participant_tag = excluded.participant_tag,
   full_name = excluded.full_name,
