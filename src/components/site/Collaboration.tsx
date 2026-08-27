@@ -22,14 +22,14 @@ export function Collaboration() {
         />
 
         <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr]">
-          <article className="surface-panel rounded-2xl p-8">
+          <article className="surface-panel flex h-full min-h-[19rem] flex-col rounded-2xl p-8">
             <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-lg font-bold text-primary-foreground">
               Z
             </div>
             <h3 className="mt-5 text-xl font-semibold">
               ZOERDHUB Privacy Blockchain &amp; AI Innovation Hub
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 flex-1 overflow-y-auto pr-1 text-sm leading-relaxed text-muted-foreground">
               An innovation hub working at the intersection of privacy technology, blockchain systems
               and applied AI research, supporting builders and researchers across the ecosystem.
             </p>
@@ -41,12 +41,12 @@ export function Collaboration() {
             </span>
           </div>
 
-          <article className="surface-panel rounded-2xl p-8">
+          <article className="surface-panel flex h-full min-h-[19rem] flex-col rounded-2xl p-8">
             <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent text-lg font-bold text-accent-foreground">
-              ⓩ
+              ©
             </div>
             <h3 className="mt-5 text-xl font-semibold">Zcash Ghana</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 flex-1 overflow-y-auto pr-1 text-sm leading-relaxed text-muted-foreground">
               A community advancing Zcash and privacy-preserving technology in Ghana through
               education, meetups and developer engagement.
             </p>

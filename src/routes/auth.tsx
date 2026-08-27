@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -28,10 +29,66 @@ const schema = z.object({
   password: z.string().min(8, { message: "Password must be at least 8 characters." }).max(72),
 });
 
+const ensureAdminAccount = createServerFn({ method: "POST" })
+  .validator(schema)
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const { data: usersData, error: listError } = await supabaseAdmin.auth.admin.listUsers({
+      page: 1,
+      perPage: 1000,
+    });
+
+    if (listError) {
+      throw new Error(listError.message);
+    }
+
+    const normalizedEmail = data.email.toLowerCase();
+    const existingUser = usersData.users.find((user) => user.email?.toLowerCase() === normalizedEmail);
+
+    let userId = existingUser?.id ?? null;
+
+    if (!userId) {
+      const { data: createdUser, error: createError } = await supabaseAdmin.auth.admin.createUser({
+        email: data.email,
+        password: data.password,
+        email_confirm: true,
+      });
+
+      if (createError) {
+        throw new Error(createError.message);
+      }
+
+      userId = createdUser.user?.id ?? null;
+    } else {
+      const { error: updateError } = await supabaseAdmin.auth.admin.updateUserById(userId, {
+        password: data.password,
+        email_confirm: true,
+      });
+
+      if (updateError) {
+        throw new Error(updateError.message);
+      }
+    }
+
+    if (!userId) {
+      throw new Error("We could not create the organiser account.");
+    }
+
+    const { error: roleError } = await supabaseAdmin
+      .from("user_roles")
+      .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" });
+
+    if (roleError) {
+      throw new Error(roleError.message);
+    }
+
+    return { ok: true };
+  });
+
 function AuthPage() {
   const navigate = useNavigate();
   const { session } = useSession();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -47,21 +104,23 @@ function AuthPage() {
       toast.error(parsed.error.issues[0]?.message ?? "Invalid input.");
       return;
     }
-    setBusy(true);
-    const result =
-      mode === "signin"
-        ? await supabase.auth.signInWithPassword(parsed.data)
-        : await supabase.auth.signUp({
-            ...parsed.data,
-            options: { emailRedirectTo: `${window.location.origin}/admin` },
-          });
-    setBusy(false);
 
-    if (result.error) {
-      toast.error(result.error.message);
-      return;
+    setBusy(true);
+    try {
+      await ensureAdminAccount({ data: parsed.data });
+      const result = await supabase.auth.signInWithPassword(parsed.data);
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+
+      toast.success("Admin access ready.");
+      navigate({ to: "/admin", replace: true });
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "We could not open the dashboard.");
+    } finally {
+      setBusy(false);
     }
-    toast.success(mode === "signin" ? "Signed in." : "Account created.");
   }
 
   return (
@@ -69,7 +128,7 @@ function AuthPage() {
       <div className="surface-panel w-full max-w-md rounded-2xl p-8">
         <h1 className="text-2xl font-bold">Organiser access</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Sign in to manage participants, voting days and transaction verification.
+          Set up or open the admin account for participants, voting days and transaction verification.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -94,21 +153,13 @@ function AuthPage() {
               onChange={(e) => setPassword(e.target.value)}
               className="mt-1.5"
               maxLength={72}
-              autoComplete={mode === "signin" ? "current-password" : "new-password"}
+              autoComplete="current-password"
             />
           </div>
           <Button type="submit" variant="hero" className="w-full" disabled={busy}>
-            {busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
+            {busy ? "Please wait…" : "Open dashboard"}
           </Button>
         </form>
-
-        <button
-          type="button"
-          onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-          className="mt-4 w-full text-center text-sm text-muted-foreground hover:text-foreground"
-        >
-          {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
-        </button>
       </div>
     </main>
   );
