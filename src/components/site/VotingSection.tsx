@@ -48,7 +48,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
         />
 
         <div className="mt-12 grid items-stretch gap-5 lg:grid-cols-[1fr_1.2fr]">
-          <div className="surface-panel flex h-full flex-col rounded-2xl p-6">
+          <div className="surface-panel flex h-full flex-col rounded-2xl px-6 pt-6 pb-4">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-semibold">Today&apos;s Voting</h3>
               <span
