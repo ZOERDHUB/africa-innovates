@@ -1,5 +1,6 @@
 import placeholder from "@/assets/participant-placeholder.jpg";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { SectionHeading } from "./SectionHeading";
 import {
   FALLBACK_CONFIG,
@@ -47,7 +48,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
         />
 
         <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
-          <div className="surface-panel rounded-2xl p-6">
+          <div className="surface-panel flex h-full flex-col rounded-2xl p-6">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-semibold">Today&apos;s Voting</h3>
               <span
@@ -109,8 +110,9 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
             ) : !leaderboardEntries.length ? (
               <p className="mt-6 text-sm text-muted-foreground">Participants will appear here soon.</p>
             ) : (
-              <ol className="mt-5 space-y-2">
-                {leaderboardEntries.map(({ participant, verifiedVotes }, index) => {
+              <ScrollArea className="mt-5 h-[460px] rounded-xl pr-2">
+                <ol className="space-y-2">
+                  {leaderboardEntries.map(({ participant, verifiedVotes }, index) => {
                   return (
                     <li
                       key={participant.id}
@@ -142,7 +144,8 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
                     </li>
                   );
                 })}
-              </ol>
+                </ol>
+              </ScrollArea>
             )}
           </div>
         </div>

@@ -107,8 +107,20 @@ function AuthPage() {
 
     setBusy(true);
     try {
-      await ensureAdminAccount({ data: parsed.data });
-      const result = await supabase.auth.signInWithPassword(parsed.data);
+      const normalizedEmail = parsed.data.email.toLowerCase();
+      let result = await supabase.auth.signInWithPassword({
+        email: normalizedEmail,
+        password: parsed.data.password,
+      });
+
+      if (result.error) {
+        await ensureAdminAccount({ data: { ...parsed.data, email: normalizedEmail } });
+        await new Promise((resolve) => setTimeout(resolve, 750));
+        result = await supabase.auth.signInWithPassword({
+          email: normalizedEmail,
+          password: parsed.data.password,
+        });
+      }
 
       if (result.error) {
         throw new Error(result.error.message);
