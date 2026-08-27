@@ -47,7 +47,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
           description={`Make a ${price} ZEC community-support contribution with a resident's memo tag. Valid contributions become verified Community Choice votes.`}
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
+        <div className="mt-12 grid items-stretch gap-5 lg:grid-cols-[1fr_1.2fr]">
           <div className="surface-panel flex h-full flex-col rounded-2xl p-6">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-semibold">Today&apos;s Voting</h3>
@@ -97,7 +97,7 @@ export function VotingSection({ config, votingDay, votingDays, participants, onV
             </p>
           </div>
 
-          <div className="surface-panel rounded-2xl p-6">
+          <div className="surface-panel flex h-full flex-col rounded-2xl p-6">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-lg font-semibold">Community Choice Leaderboard</h3>
               <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
