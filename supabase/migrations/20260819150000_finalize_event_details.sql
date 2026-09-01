@@ -14,7 +14,7 @@ set vote_price_zec = '0.01'
 where vote_price_zec = '' or vote_price_zec = '[TO BE CONFIRMED]' or vote_price_zec = '0.001';
 
 update public.schedule_items
-set facilitator = 'ZOERDHUB', time_label = '1:00 PM WAT'
+set facilitator = 'ZOERDHUB', time_label = '12:00 PM WAT'
 where session_title in ('Weekly Build Challenge + Community Voting', 'Rest / Community Engagement Day');
 
 update public.schedule_items
