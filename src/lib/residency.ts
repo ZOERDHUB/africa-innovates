@@ -9,7 +9,7 @@ export type ScheduleItem = Tables<"schedule_items">;
 export type FaqItem = Tables<"faq_items">;
 export type VoteSubmission = Tables<"vote_submissions">;
 
-const RESIDENT_ROSTER_UPDATED_AT = "2026-08-26T00:00:00.000Z";
+const RESIDENT_ROSTER_UPDATED_AT = "2026-09-06T00:00:00.000Z";
 
 // Keep the published roster available while the Supabase participant records are
 // being updated. Image filenames deliberately match each resident's username.
@@ -25,6 +25,7 @@ const RESIDENT_ROSTER: Participant[] = [
   ["00000000-0000-4000-8000-000000000009", "RES-009", "RES009", "Dark Blanche", "@Dark_Blanche", "/residents/%40Dark_Blanche.jpg"],
   ["00000000-0000-4000-8000-000000000010", "RES-010", "RES010", "0xWeb3DevRel", "@0xWeb3DevRel", "/residents/%400xWeb3DevRel.jpg"],
   ["00000000-0000-4000-8000-000000000011", "RES-011", "RES011", "Keoshua001", "@Keoshua001", "/residents/IMG-20260825-WA0016~2.jpg"],
+  ["00000000-0000-4000-8000-000000000012", "RES-012", "RES012", "abp", "@abp", "/residents/abp.jpg"],
 ].map(([id, participant_code, participant_tag, full_name, username, image_url], index) => ({
   id,
   participant_code,
