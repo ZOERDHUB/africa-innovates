@@ -83,7 +83,7 @@ function Index() {
           participants={participants}
           onVote={handleVote}
         />
-        <Livestream config={config} />
+        <Livestream />
         <Schedule items={schedule} />
         <Sponsorship />
         <Support config={config} />

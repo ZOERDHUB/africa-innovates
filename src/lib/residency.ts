@@ -10,19 +10,25 @@ export type FaqItem = Tables<"faq_items">;
 export type VoteSubmission = Tables<"vote_submissions">;
 
 const RESIDENT_ROSTER_UPDATED_AT = "2026-09-06T00:00:00.000Z";
+const REMOVED_RESIDENT_CODES = new Set(["RES-001", "RES-004", "RES-006", "RES-009"]);
+export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@ZOERDHubTV";
+
+function filterPublishedResidents<T extends Pick<Participant, "participant_code">>(
+  residents: T[],
+): T[] {
+  return residents.filter(
+    (resident) => !REMOVED_RESIDENT_CODES.has(resident.participant_code.toUpperCase()),
+  );
+}
 
 // Keep the published roster available while the Supabase participant records are
 // being updated. Image filenames deliberately match each resident's username.
 const RESIDENT_ROSTER: Participant[] = [
-  ["00000000-0000-4000-8000-000000000001", "RES-001", "RES001", "Scofield", "@Scofield", "/residents/Scofield.jpeg"],
   ["00000000-0000-4000-8000-000000000002", "RES-002", "RES002", "Mustapha QAUNT", "@Mustapha_QAUNT", "/residents/Mustapha_QAUNT.jpg"],
   ["00000000-0000-4000-8000-000000000003", "RES-003", "RES003", "Jemmy", "@Jemmy", "/residents/Jemmy.jpeg"],
-  ["00000000-0000-4000-8000-000000000004", "RES-004", "RES004", "IKE", "@IKE", "/residents/IKE.jpg"],
   ["00000000-0000-4000-8000-000000000005", "RES-005", "RES005", "Hybridthegeek", "@Hybridthegeek", "/residents/Hybridthegeek.jpg"],
-  ["00000000-0000-4000-8000-000000000006", "RES-006", "RES006", "Gwill", "@Gwill", "/residents/Gwill.jpeg"],
   ["00000000-0000-4000-8000-000000000007", "RES-007", "RES007", "angelnath", "@angelnath", "/residents/angelnath.jpg"],
   ["00000000-0000-4000-8000-000000000008", "RES-008", "RES008", "Akwenuke Daniel", "@Akwenuke Daniel", "/residents/Akwenuke%20Daniel.jpeg"],
-  ["00000000-0000-4000-8000-000000000009", "RES-009", "RES009", "Dark Blanche", "@Dark_Blanche", "/residents/%40Dark_Blanche.jpg"],
   ["00000000-0000-4000-8000-000000000010", "RES-010", "RES010", "0xWeb3DevRel", "@0xWeb3DevRel", "/residents/%400xWeb3DevRel.jpg"],
   ["00000000-0000-4000-8000-000000000011", "RES-011", "RES011", "Keoshua001", "@Keoshua001", "/residents/IMG-20260825-WA0016~2.jpg"],
   ["00000000-0000-4000-8000-000000000012", "RES-012", "RES012", "abp", "@abp", "/residents/abp.jpg"],
@@ -44,6 +50,13 @@ const RESIDENT_ROSTER: Participant[] = [
   updated_at: RESIDENT_ROSTER_UPDATED_AT,
 }));
 
+export function selectPublishedResidents(publishedParticipants: Participant[]): Participant[] {
+  const residents = filterPublishedResidents(publishedParticipants);
+  return !residents.length || residents.every((resident) => resident.is_demo)
+    ? RESIDENT_ROSTER
+    : residents;
+}
+
 export const FALLBACK_CONFIG = {
   event_kicker: "ZOERDHUB × Zcash Ghana",
   event_title: "Technology Residency",
@@ -51,7 +64,7 @@ export const FALLBACK_CONFIG = {
   event_date: "1–21 September 2026",
   duration: "3 Weeks",
   location: "ZOERDHUB Nigeria",
-  livestream_url: "https://www.youtube.com/@ZOERDHubTV",
+  livestream_url: YOUTUBE_CHANNEL_URL,
   vote_price_zec: "0.01",
 } as const;
 
@@ -76,10 +89,7 @@ export function useParticipants() {
         .eq("is_active", true)
         .order("sort_order", { ascending: true });
       if (error) throw error;
-      const publishedParticipants = data ?? [];
-      return !publishedParticipants.length || publishedParticipants.every((participant) => participant.is_demo)
-        ? RESIDENT_ROSTER
-        : publishedParticipants;
+      return selectPublishedResidents(data ?? []);
     },
   });
 }

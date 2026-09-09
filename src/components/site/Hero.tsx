@@ -1,14 +1,13 @@
-import { CalendarDays, Clock, MapPin, PlayCircle, Users2, Handshake } from "lucide-react";
+import { CalendarDays, Clock, Handshake, MapPin, Users2, Youtube } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import type { SiteConfig } from "@/lib/residency";
-import { FALLBACK_CONFIG } from "@/lib/residency";
+import { FALLBACK_CONFIG, YOUTUBE_CHANNEL_URL } from "@/lib/residency";
 
 export function Hero({ config }: { config: SiteConfig | null | undefined }) {
   const kicker = FALLBACK_CONFIG.event_kicker;
   const title = config?.event_title ?? FALLBACK_CONFIG.event_title;
   const headline = config?.headline ?? FALLBACK_CONFIG.headline;
-  const livestream = config?.livestream_url ?? FALLBACK_CONFIG.livestream_url;
   const eventDate = FALLBACK_CONFIG.event_date;
   const duration = config?.duration?.startsWith("[") ? FALLBACK_CONFIG.duration : config?.duration ?? FALLBACK_CONFIG.duration;
   const location = config?.location?.startsWith("[") ? FALLBACK_CONFIG.location : config?.location ?? FALLBACK_CONFIG.location;
@@ -60,8 +59,8 @@ export function Hero({ config }: { config: SiteConfig | null | undefined }) {
             <a href="#vote">Vote for a Participant</a>
           </Button>
           <Button asChild variant="accent" size="lg">
-            <a href={livestream} target="_blank" rel="noopener noreferrer">
-              <PlayCircle /> Watch Livestream
+            <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
+              <Youtube /> Watch on YouTube
             </a>
           </Button>
           <Button asChild variant="outlineBrand" size="lg">
